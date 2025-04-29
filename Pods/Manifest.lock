@@ -1,0 +1,22 @@
+PODS:
+  - ReactiveObjC (4.0.0)
+
+DEPENDENCIES:
+  - ReactiveObjC (from `https://github.com/xygkevin/ReactiveObjC.git`, branch `master`)
+
+EXTERNAL SOURCES:
+  ReactiveObjC:
+    :branch: master
+    :git: https://github.com/xygkevin/ReactiveObjC.git
+
+CHECKOUT OPTIONS:
+  ReactiveObjC:
+    :commit: 712f6a360c0953e868a2a3345758b50dd5886d07
+    :git: https://github.com/xygkevin/ReactiveObjC.git
+
+SPEC CHECKSUMS:
+  ReactiveObjC: c90f3f2fc982067e9427c0d688efcc31f3fe646c
+
+PODFILE CHECKSUM: 3bf425fd0b51bb31dc60e4da10f426d4b017c7d4
+
+COCOAPODS: 1.16.2
