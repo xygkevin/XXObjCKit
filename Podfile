@@ -3,7 +3,7 @@ platform :ios, '15.0'
 target 'XXObjCKit' do
   # Comment the next line if you don't want to use dynamic frameworks
   #use_frameworks!
-
+  pod 'AFNetworking'
   pod 'ReactiveObjC'    , :git => 'https://github.com/xygkevin/ReactiveObjC.git', :branch => 'master'
 
 end

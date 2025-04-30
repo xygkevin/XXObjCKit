@@ -18,16 +18,7 @@
  */
 
 #import <Foundation/Foundation.h>
-
-#if __has_include(<ReactiveObjC/ReactiveObjC.h>)
-    #import <ReactiveObjC/ReactiveObjC.h>
-    #define HAS_RACOBJC 1
-#elif __has_include("ReactiveObjC.h")
-    #import "ReactiveObjC.h"
-    #define HAS_RACOBJC 1
-#else
-    #define HAS_RACOBJC 0
-#endif
+#import <ReactiveObjC/ReactiveObjC.h>
 
 /// 通知名称
 FOUNDATION_EXTERN NSNotificationName const XXNetworkReachableDidChangeNotificationName;
@@ -128,12 +119,10 @@ typedef NS_ENUM(NSUInteger, XXNetworkType) {
 @property (nonatomic, copy) void(^networkStatusDidChangeHandler)(XXNetworkStatus status);
 @property (nonatomic, copy) void(^networkTypeDidChangeHandler)(XXNetworkType status);
 
-#if HAS_RACOBJC
 /// 网络状态变化信号
 @property (nonatomic, strong, readonly) RACBehaviorSubject<NSNumber *> *networkReachableSignal;
 @property (nonatomic, strong, readonly) RACBehaviorSubject<NSNumber *> *networkStatusSignal;
 @property (nonatomic, strong, readonly) RACBehaviorSubject<NSNumber *> *networkTypeSignal;
-#endif
 
 /// 监听类实例对象
 + (instancetype)shared;

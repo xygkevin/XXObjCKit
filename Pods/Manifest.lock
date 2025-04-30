@@ -1,8 +1,28 @@
 PODS:
+  - AFNetworking (4.0.1):
+    - AFNetworking/NSURLSession (= 4.0.1)
+    - AFNetworking/Reachability (= 4.0.1)
+    - AFNetworking/Security (= 4.0.1)
+    - AFNetworking/Serialization (= 4.0.1)
+    - AFNetworking/UIKit (= 4.0.1)
+  - AFNetworking/NSURLSession (4.0.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
+  - AFNetworking/UIKit (4.0.1):
+    - AFNetworking/NSURLSession
   - ReactiveObjC (4.0.0)
 
 DEPENDENCIES:
+  - AFNetworking
   - ReactiveObjC (from `https://github.com/xygkevin/ReactiveObjC.git`, branch `master`)
+
+SPEC REPOS:
+  trunk:
+    - AFNetworking
 
 EXTERNAL SOURCES:
   ReactiveObjC:
@@ -15,8 +35,9 @@ CHECKOUT OPTIONS:
     :git: https://github.com/xygkevin/ReactiveObjC.git
 
 SPEC CHECKSUMS:
+  AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   ReactiveObjC: c90f3f2fc982067e9427c0d688efcc31f3fe646c
 
-PODFILE CHECKSUM: 3bf425fd0b51bb31dc60e4da10f426d4b017c7d4
+PODFILE CHECKSUM: 606b2c3b8a2186b5c9e4354885afca8d6ef3f897
 
 COCOAPODS: 1.16.2

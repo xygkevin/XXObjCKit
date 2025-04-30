@@ -19,10 +19,10 @@
     [super viewDidLoad];
     
     XXNetworkMonitor *monitor = [XXNetworkMonitor shared];
-    RACSignal *signal = monitor.networkTypeSignal;
-    [[[signal skipWhileBlock:^BOOL(NSNumber *status) {
+    RACSignal *signal = monitor.networkStatusSignal;
+    [[signal skipWhileBlock:^BOOL(NSNumber *status) {
         return status.integerValue == XXNetworkStatusUnknown;
-    }] distinctUntilChanged] subscribeNext:^(NSNumber *type) {
+    }] subscribeNext:^(NSNumber *type) {
         self.statusLabel.text = [NSString stringWithFormat:@"%@\n%@\n%@",
                                  monitor.statusDisplayName,
                                  monitor.typeDisplayName,

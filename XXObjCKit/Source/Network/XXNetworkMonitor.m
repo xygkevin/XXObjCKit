@@ -26,11 +26,10 @@ NSNotificationName const XXNetworkTypeDidChangeNotificationName = @"XXNetowrkTyp
 @property (nonatomic, assign) BOOL reachable;
 @property (nonatomic, strong) NSHashTable<id<XXNetworkMonitorDelegate>> *delegates;
 
-#if HAS_RACOBJC
 @property (nonatomic, strong) RACBehaviorSubject<NSNumber *> *networkReachableSignal;
 @property (nonatomic, strong) RACBehaviorSubject<NSNumber *> *networkStatusSignal;
 @property (nonatomic, strong) RACBehaviorSubject<NSNumber *> *networkTypeSignal;
-#endif
+
 
 @end
 
@@ -42,11 +41,11 @@ NSNotificationName const XXNetworkTypeDidChangeNotificationName = @"XXNetowrkTyp
     dispatch_once(&onceToken, ^{
         _instance = [[self alloc] init];
         _instance.delegates = [NSHashTable weakObjectsHashTable];
-#if HAS_RACOBJC
+        
         _instance.networkReachableSignal = [RACBehaviorSubject behaviorSubjectWithDefaultValue:@(NO)];
         _instance.networkStatusSignal = [RACBehaviorSubject behaviorSubjectWithDefaultValue:@(XXNetworkStatusUnknown)];
         _instance.networkTypeSignal = [RACBehaviorSubject behaviorSubjectWithDefaultValue:@(XXNetworkTypeUnknown)];
-#endif
+
         dispatch_queue_t queue = dispatch_queue_create("network_monitor_queue", DISPATCH_QUEUE_PRIORITY_DEFAULT);
         nw_path_monitor_t monitor = nw_path_monitor_create();
         nw_path_monitor_set_queue(monitor, queue);
@@ -90,11 +89,10 @@ NSNotificationName const XXNetworkTypeDidChangeNotificationName = @"XXNetowrkTyp
 }
 
 - (void)sendNext {
-#if HAS_RACOBJC
+
     [self.networkReachableSignal sendNext:@(self.reachable)];
     [self.networkStatusSignal sendNext:@(self.networkStatus)];
     [self.networkTypeSignal sendNext:@(self.networkType)];
-#endif
     
     [[NSNotificationCenter defaultCenter] postNotificationName:XXNetworkReachableDidChangeNotificationName object:self userInfo:@{@"reachable":@(self.reachable)}];
     [[NSNotificationCenter defaultCenter] postNotificationName:XXNetworkStatusDidChangeNotificationName object:self userInfo:@{@"status":@(self.networkStatus)}];

@@ -14,8 +14,8 @@ Pod::Spec.new do |spec|
 
   spec.source_files  = "XXObjCKit/Source/Network/XXNetworkMonitor.{h,m}"
   spec.pod_target_xcconfig = { 'VALID_ARCHS' => 'x86_64 armv7 arm64' }
-  spec.framework  = "Network"
+  spec.frameworks = "Network", "CoreTelephony"
   spec.requires_arc = true
-
+  spec.dependency  'ReactiveObjC'
 
 end
