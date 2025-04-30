@@ -7,10 +7,9 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface UILabel (XXKit)
+
++ (UILabel *)xx_labelWithFont:(UIFont *)font textColor:(UIColor *)textColor textAlignment:(NSTextAlignment)textAlignment numberOfLines:(NSUInteger)numberOfLines;
 
 @end
 
-NS_ASSUME_NONNULL_END

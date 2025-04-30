@@ -9,4 +9,13 @@
 
 @implementation UILabel (XXKit)
 
++ (UILabel *)xx_labelWithFont:(UIFont *)font textColor:(UIColor *)textColor textAlignment:(NSTextAlignment)textAlignment numberOfLines:(NSUInteger)numberOfLines {
+    UILabel *label = [UILabel new];
+    label.font = font;
+    label.textColor = textColor;
+    label.textAlignment = textAlignment;
+    label.numberOfLines = numberOfLines;
+    return label;
+}
+
 @end

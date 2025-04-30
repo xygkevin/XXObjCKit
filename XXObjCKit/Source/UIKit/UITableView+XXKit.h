@@ -7,10 +7,10 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface UITableView (XXKit)
+
+- (void)xx_registerCellClass:(Class)cellClass;
+- (__kindof UITableViewCell *)dequeueReusableCellWithCellClass:(Class)cellClass forIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
-NS_ASSUME_NONNULL_END
